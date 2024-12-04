@@ -1,2 +1,2 @@
-# Aristocles-Arithmatic
-calculator project
+# Michael's Mathematics
+Reasonable calculator program.
