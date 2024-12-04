@@ -10,14 +10,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.io.File;
 
 public class MikeMath {
 
 	public static void main(String[] args) {
 	
 		Arithmetic a = new Arithmetic();
-		a.createScreen();
 		a.helpScreen();
+		a.createScreen();
 	
 	}
 
@@ -31,6 +33,7 @@ class Arithmetic {
 	public static JTextField t;
 	public static JLabel ans;
 	private Font SERIF = new Font("Serif", Font.PLAIN, 20);
+	private File file = new File("miker.jpg");
 	
 	public void createScreen() {
 		
@@ -40,7 +43,7 @@ class Arithmetic {
 		maths = new JPanel();
 		answer = new JPanel();
 		JLabel l = new JLabel("Michael's Mathematics");
-		JLabel mike = new JLabel(new ImageIcon("C:\\Users\\chamc\\Downloads\\miker.jpg"));
+		JLabel mike = new JLabel(new ImageIcon(file.getAbsolutePath()));
 		ans = new JLabel("Answer = ");
 		t = new JTextField("                                                                                                                          ");
 		t.addActionListener(new Solver());
@@ -97,7 +100,7 @@ class Solver implements ActionListener {
 		Solver so = new Solver();
 		String sus = a.t.getText().replaceAll("\\s", "");
 		int leng = sus.length();
-		int fAns = 0;
+		double fAns = 0;
 		if (sus.indexOf('+') > -1) {
 			
 			fAns = so.converter(so.cycler(sus.indexOf('+'), sus)) + so.converter(so.cycler(sus.indexOf('+'), sus, leng));
@@ -159,10 +162,10 @@ class Solver implements ActionListener {
 	
 	}
 	
-	private int converter(StringBuilder sb) {
+	private double converter(StringBuilder sb) {
 		
 		String sr = sb.toString();
-		int bank = Integer.parseInt(sr);
+		double bank = Double.parseDouble(sr);
 		return bank;
 	
 	}
