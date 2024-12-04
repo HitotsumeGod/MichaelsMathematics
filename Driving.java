@@ -70,13 +70,13 @@ class Solver implements ActionListener {
 			a.ans.setText("Answer = " + fAns);
 			a.f.setVisible(true);
 		
-		} else if (sus.indexOf('/') > -1) {
+		} else if (sus.indexOf('*') > -1) {
 		
 			fAns = so.converter(so.cycler(sus.indexOf('*'), sus)) * so.converter(so.cycler(sus.indexOf('*'), sus, leng));
 			a.ans.setText("Answer = " + fAns);
 			a.f.setVisible(true);
 		
-		} else if (sus.indexOf('*') > -1) {
+		} else if (sus.indexOf('/') > -1) {
 		
 			fAns = so.converter(so.cycler(sus.indexOf('/'), sus)) / so.converter(so.cycler(sus.indexOf('/'), sus, leng));
 			a.ans.setText("Answer = " + fAns);
@@ -90,7 +90,6 @@ class Solver implements ActionListener {
 	
 	private StringBuilder cycler(int max, String s) {
 	
-		System.out.println(s.charAt(max));
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < max; i++) {
 		
